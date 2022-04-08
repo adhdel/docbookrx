@@ -331,7 +331,8 @@ class DocbookVisitor
     else
       method_name = method.to_s
       case method_name
-      when "visit_itemizedlist", "visit_orderedlist"
+      when "visit_itemizedlist", "visit_orderedlist", 
+           "visit_procedure", "visit_substeps", "visit_stepalternatives"
         @list_depth -= 1
       when "visit_table", "visit_informaltable"
         @in_table = false
@@ -733,7 +734,7 @@ class DocbookVisitor
           end
 
           local_continuation = false
-          unless i == 0 || first_line || (child.name == 'literallayout' || child.name == 'itemizedlist' || child.name == 'orderedlist')
+          unless i == 0 || first_line || (child.name == 'literallayout' || child.name == 'itemizedlist' || child.name == 'orderedlist' || child.name == 'procedure')
             append_line '+'
             @continuation = true
             local_continuation = true
@@ -773,7 +774,7 @@ class DocbookVisitor
               if first_line && ! local_continuation
                 append_text ' {empty}' # necessary to fool asciidoctorj into thinking that this is a listitem
               end
-              unless local_continuation || (child.name == 'literallayout' || child.name == 'itemizedlist' || child.name == 'orderedlist')
+              unless local_continuation || (child.name == 'literallayout' || child.name == 'itemizedlist' || child.name == 'orderedlist' || child.name == 'procedure')
                 append_line '+'
               end
               @continuation = false
