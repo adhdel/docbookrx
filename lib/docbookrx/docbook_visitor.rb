@@ -59,7 +59,7 @@ class DocbookVisitor
 
   ANONYMOUS_LITERAL_NAMES = ['abbrev', 'acronym', 'code', 'database', 'function', 'literal', 'tag']
 
-  NAMED_LITERAL_NAMES = ['application', 'organization', 'classname', 'constant', 'envar', 'exceptionname', 'interfacename', 'methodname', 'option', 'parameter', 'property', 'replaceable', 'type', 'varname', 'prompt', 'command', 'userinput', 'computeroutput']
+  NAMED_LITERAL_NAMES = ['application', 'organization', 'classname', 'constant', 'envar', 'exceptionname', 'interfacename', 'methodname', 'option', 'parameter', 'property', 'replaceable', 'type', 'varname', 'prompt', 'command', 'systemitem', 'userinput', 'computeroutput']
 
   LITERAL_NAMES = ANONYMOUS_LITERAL_NAMES + NAMED_LITERAL_NAMES
 
@@ -67,7 +67,7 @@ class DocbookVisitor
 
   KEYWORD_NAMES = ['package', 'firstterm', 'citetitle']
 
-  PATH_NAMES = ['directory', 'filename', 'systemitem']
+  PATH_NAMES = ['directory', 'filename']
 
   UI_NAMES = ['guibutton', 'guilabel', 'menuchoice', 'guimenu', 'keycap']
 
