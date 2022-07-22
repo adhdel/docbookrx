@@ -952,7 +952,6 @@ class DocbookVisitor
   end
 
   def visit_screen node
-    append_blank_line unless node.parent.name == 'para'
     source_lines = node.text.rstrip.split EOL
     if source_lines.detect {|line| line.match(/^-{4,}/) }
       append_line '[listing]'
@@ -960,9 +959,10 @@ class DocbookVisitor
       append_line node.text.rstrip
       append_line '....'
     else
-      append_line '----'
+      append_line '[literal,subs="+quotes,verbatim"]'
+      append_line '....'
       append_line node.text.rstrip
-      append_line '----'
+      append_line '....'
     end
     false
   end
