@@ -1512,12 +1512,15 @@ class DocbookVisitor
     false
   end
 
-  def visit_footnote node
-    append_text %(footnote:[#{(text_at_css node, '> para', '> simpara').strip}])
-    # FIXME not sure a blank line is always appropriate
-    #append_blank_line
-    false
-  end
+# disabled ue to needing to preserve the ids for footnoteref:
+# better for now to let it be transferred as is and fix manually.
+#
+# def visit_footnote node
+#    append_text %(footnote:[#{(text_at_css node, '> para', '> simpara').strip}])
+#    # FIXME not sure a blank line is always appropriate
+#    #append_blank_line
+#    false
+#  end
 
   def visit_funcsynopsis node
     append_blank_line unless node.parent.name == 'para'
