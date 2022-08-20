@@ -1457,7 +1457,7 @@ class DocbookVisitor
       if node.parent.name == 'cmdsynopsis'
         format_append_text node, '*', '*'
       else
-        format_append_text node, '[cmd]*', '*'
+        format_append_text node, '[command]`', '`'
       end
     when 'computeroutput'
       format_append_text node, '[output]`', '`'
