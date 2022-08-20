@@ -1380,7 +1380,7 @@ class DocbookVisitor
     #else
     #  name
     #end
-    append_text %([#{role}]_#{node.text}_)
+    append_text %([#{role}]`#{node.text}`)
     false
   end
 
